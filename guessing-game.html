@@ -1,21 +1,47 @@
 <script>
-var guestion1;
-var rightAnswer1;
-var wrongAnswer;
+var question1,
+    rightAnswer1,
+    wrongAnswer,
+    question2,
+    rightAnswer2,
+    wrongAnswer2;
 
 wrongAnswer = ("sandwiches");
 rightAnswer1 = ("sandwich");
+rightAnswer2 = ("tacos");
+wrongAnswer2 = ("taco");
 
-question1 = prompt("Guess what I had for breakfast today.").toLowerCase()
+question1 = prompt("Guess what I had for breakfast today. (If you can't take it and want to quit, just enter Q").toLowerCase();
 
-		while (question1 != rightAnswer1){
-			if(question1 == wrongAnswer) {
-				var question1 = prompt("I only had one sandwich though. More than one sandwich for breakfast makes you way too full! Why don't you try again.");
-			}
-		else {question1 = prompt("Nope. Hint: I had mayo, lettuce, cucumber and ham between two pieces of bread. Why don't you try again.");
-		}
-		};
-		
-	alert("Amazing! You guessed it right!");
+    while (question1 != rightAnswer1){
+      if(question1 == "q"){
+        question2 = rightAnswer2;
+        break;
+      }
+      else if(question1 == wrongAnswer) {
+        question1 = prompt("I only had one sandwich though. More than one sandwich for breakfast makes you way too full! Why don't you try again.");
+      }
+    else {question1 = prompt("Nope. Hint: I had mayo, lettuce, cucumber and ham between two pieces of bread. Why don't you try again.");
+    }
+    };
 
+if(question1 == rightAnswer1){ question2 = prompt("Amazing! You guessed it right! Now what do you think I had for lunch?").toLowerCase();}
+
+while(question2 !== rightAnswer2){
+  if(question2 == "q"){
+  break;
+  }
+  else if(question2 == wrongAnswer2){
+    question2 = prompt("Close, but who has only one taco?").toLowerCase();
+  }else{
+    question2 = prompt("Nope, try something more Mexican.").toLowerCase();
+  }
+};
+if(question1 == "q"){
+  alert("Bye");
+}else if(question2 == "q"){
+  alert("Bye");
+}else{
+alert("Great, now I just gotta go get dinner and we can make another quiz!");
+};
 </script>
